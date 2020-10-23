@@ -1,0 +1,12 @@
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\bin\Debug\netstandard2.0\ProjectLibrary.deps.json
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\bin\Debug\netstandard2.0\ProjectLibrary.dll
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\bin\Debug\netstandard2.0\ProjectLibrary.pdb
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\bin\Debug\netstandard2.0\MyLibs.dll
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\bin\Debug\netstandard2.0\MyLibs.pdb
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.csprojAssemblyReference.cache
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.AssemblyInfoInputs.cache
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.AssemblyInfo.cs
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.csproj.CoreCompileInputs.cache
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.csproj.CopyComplete
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.dll
+C:\Users\HoboPrime\Desktop\grandCircus\unit2\TaskList\ProjectLibrary\obj\Debug\netstandard2.0\ProjectLibrary.pdb
