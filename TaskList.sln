@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskList", "TaskList\TaskLi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibs", "..\MovieList\MyLibs\MyLibs.csproj", "{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLibrary", "ProjectLibrary\ProjectLibrary.csproj", "{67A5A5FC-8A67-48FA-88F9-26F2ACC80216}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{67A5A5FC-8A67-48FA-88F9-26F2ACC80216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67A5A5FC-8A67-48FA-88F9-26F2ACC80216}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67A5A5FC-8A67-48FA-88F9-26F2ACC80216}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67A5A5FC-8A67-48FA-88F9-26F2ACC80216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

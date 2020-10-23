@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/MyLibs.dll": {}
         }
-      },
-      "ProjectLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "MyLibs": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/ProjectLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ProjectLibrary.dll": {}
-        }
       }
     }
   },
@@ -32,16 +19,11 @@
       "type": "project",
       "path": "../../MovieList/MyLibs/MyLibs.csproj",
       "msbuildProject": "../../MovieList/MyLibs/MyLibs.csproj"
-    },
-    "ProjectLibrary/1.0.0": {
-      "type": "project",
-      "path": "../ProjectLibrary/ProjectLibrary.csproj",
-      "msbuildProject": "../ProjectLibrary/ProjectLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "ProjectLibrary >= 1.0.0"
+      "MyLibs >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -70,8 +52,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\ProjectLibrary\\ProjectLibrary.csproj": {
-              "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\ProjectLibrary\\ProjectLibrary.csproj"
+            "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj": {
+              "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj"
             }
           }
         }
