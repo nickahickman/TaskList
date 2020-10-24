@@ -6,7 +6,7 @@ namespace TaskList
     {
         static void Main(string[] args)
         {
-            ProjectLibrary.TaskMaster.Start();
+            TaskList.TaskManager.Start();
         }
     }
 }
