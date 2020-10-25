@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskList", "TaskList\TaskList.csproj", "{5C1BC4EF-D02B-431E-B108-F696051A5045}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskList", "TaskList\TaskList.csproj", "{5C1BC4EF-D02B-431E-B108-F696051A5045}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibs", "..\MovieList\MyLibs\MyLibs.csproj", "{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyLibs", "MyLibs\MyLibs.csproj", "{6E3C4A8C-564F-4B4E-AC20-C82C443E73A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5C1BC4EF-D02B-431E-B108-F696051A5045}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C1BC4EF-D02B-431E-B108-F696051A5045}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C1BC4EF-D02B-431E-B108-F696051A5045}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E7BE4FD-B3A8-4743-9955-7B0F6CDE610D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3C4A8C-564F-4B4E-AC20-C82C443E73A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3C4A8C-564F-4B4E-AC20-C82C443E73A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3C4A8C-564F-4B4E-AC20-C82C443E73A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3C4A8C-564F-4B4E-AC20-C82C443E73A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

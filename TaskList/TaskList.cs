@@ -74,7 +74,7 @@ namespace TaskList
                 {
                     Console.Clear();
                     MyLibs.ConsoleLibrary.DrawTitle("Mark Task Complete");
-                    DeleteTask();
+                    MarkTaskComplete();
                 }
                 else 
                 {
@@ -103,7 +103,7 @@ namespace TaskList
 
             string assignedTo = MyLibs.UserInputLibrary.GetName("Who will this task be assigned to? ");
             string description = MyLibs.UserInputLibrary.GetUserResponse("Enter a task description: ");
-            string dueDate = MyLibs.UserInputLibrary.GetNewDate("When is this task due? ");
+            string dueDate = MyLibs.UserInputLibrary.GetNewDate("When is this task due? (mm/dd/yyyy) ");
 
             TaskList.Add(new TaskClass(assignedTo, description, dueDate));
             Console.WriteLine("Task added successfully");
@@ -111,97 +111,85 @@ namespace TaskList
 
         public static void DeleteTask()
         {
+            int cancelOption = TaskList.Count + 1;
+            int userSelection;
+            bool actionConfirmation;
+
             ListTasks();
+            Console.WriteLine($"Enter {cancelOption} to cancel.");
 
-            int userSelection = MyLibs.UserInputLibrary.GetMenuSelection("\nWhich task do you wish to delete? ", Menu);
+            userSelection = MyLibs.UserInputLibrary.GetIntegerResponse("\nWhich task do you wish to delete? ", TaskList.Count + 1);
 
-            while (userSelection < 0 || userSelection > TaskList.Count)
+            while (userSelection < 0 || userSelection > TaskList.Count + 1)
             {
                 userSelection = MyLibs.UserInputLibrary.GetMenuSelection("Invalid selection: Which task do you wish to delete? ", Menu);
             }
 
-            PrintTask(userSelection);
-            bool deleteConfirmation = MyLibs.UserInputLibrary.GetYesOrNoInput("Are you sure you want to delete this item");
-
-            if (deleteConfirmation)
+            if (userSelection == cancelOption - 1)
             {
-                TaskList.RemoveAt(userSelection);
-                Console.WriteLine("Task deleted successfully");
+                Console.Clear();
+                return;
             }
-            else {
-                Console.WriteLine("Action canceled");
-            }
+            else
+            {
+                PrintTask(userSelection);
+                actionConfirmation = MyLibs.UserInputLibrary.GetYesOrNoInput("Are you sure you want to delete this item");
 
+                if (actionConfirmation)
+                {
+                    TaskList.RemoveAt(userSelection);
+                    Console.Clear();
+                    Console.WriteLine("Task deleted successfully");
+                }
+                else
+                {
+                    Console.WriteLine("Action canceled");
+                }
+            }
         }
 
-        public static void MarkComplete()
+        public static void MarkTaskComplete()
         {
+            int cancelOption = TaskList.Count + 1;
+            int userSelection;
+            bool actionConfirmation;
+
             ListTasks();
+            Console.WriteLine($"Enter {cancelOption} to cancel.");
 
-            int userSelection = MyLibs.UserInputLibrary.GetMenuSelection("\nWhich item should be marked complete? ", Menu);
+            userSelection = MyLibs.UserInputLibrary.GetIntegerResponse("\nWhich task do you wish to mark complete? ", TaskList.Count + 1);
 
-            while (userSelection < 0 || userSelection > TaskList.Count)
+            while (userSelection < 0 || userSelection > TaskList.Count + 1)
             {
-                userSelection = MyLibs.UserInputLibrary.GetMenuSelection("Invalid selection: Which item should be marked complete? ", Menu);
+                userSelection = MyLibs.UserInputLibrary.GetMenuSelection("Invalid selection: Which task do you wish to mark complete? ", Menu);
             }
 
-            PrintTask(userSelection);
-            string actionConfirmation = MyLibs.UserInputLibrary.GetUserResponse("Are you sure you want to mark this item complete? (y/n) ");
-
-            if (actionConfirmation == "y")
+            if (userSelection == cancelOption - 1)
             {
-                TaskList[userSelection].IsComplete = true;
-                Console.WriteLine("Task successfully removed!");
+                Console.Clear();
+                return;
             }
-            else if (actionConfirmation == "n")
+            else
             {
-                Console.WriteLine("Action canceled");
+                PrintTask(userSelection);
+                actionConfirmation = MyLibs.UserInputLibrary.GetYesOrNoInput("Are you sure you want to mark this item complete");
+
+                if (actionConfirmation)
+                {
+                    TaskList[userSelection].IsComplete = true;
+                    Console.Clear();
+                    Console.WriteLine("Task Updated");
+                }
+                else
+                {
+                    Console.WriteLine("Action canceled");
+                }
             }
         }
 
         private static void PrintTask(int index)
         {
             Console.WriteLine($"{index + 1}. {TaskList[index].AssignedTo}\t\t{TaskList[index].DueDate.ToShortDateString()}\t{TaskList[index].IsComplete}\t\t{TaskList[index].TaskDescription}");
-        }
-    }
-
-    public class TaskClass
-    {
-        private string assignedTo;
-        private string taskDescription;
-        private DateTime dueDate;
-        private bool isComplete;
-
-        public string AssignedTo
-        {
-            get { return assignedTo; }
-            set { assignedTo = value; }
-        }
-
-        public string TaskDescription
-        {
-            get { return taskDescription; }
-            set { taskDescription = value; }
-        }
-
-        public DateTime DueDate
-        {
-            get { return dueDate; }
-            set { dueDate = value; }
-        }
-
-        public bool IsComplete
-        {
-            get { return isComplete; }
-            set { isComplete = value; }
-        }
-
-        public TaskClass(string AssignedTo, string TaskDescription, string DueDate)
-        {
-            assignedTo = AssignedTo;
-            taskDescription = TaskDescription;
-            dueDate = DateTime.Parse(DueDate);
-            isComplete = false;
         }
     }
 }

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MovieList\MyLibs\MyLibs.csproj" />
+    <ProjectReference Include="..\MyLibs\MyLibs.csproj" />
   </ItemGroup>
 
 </Project>

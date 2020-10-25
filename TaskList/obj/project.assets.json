@@ -17,8 +17,8 @@
   "libraries": {
     "MyLibs/1.0.0": {
       "type": "project",
-      "path": "../../MovieList/MyLibs/MyLibs.csproj",
-      "msbuildProject": "../../MovieList/MyLibs/MyLibs.csproj"
+      "path": "../MyLibs/MyLibs.csproj",
+      "msbuildProject": "../MyLibs/MyLibs.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -52,8 +52,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj": {
-              "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj"
+            "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj": {
+              "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj"
             }
           }
         }

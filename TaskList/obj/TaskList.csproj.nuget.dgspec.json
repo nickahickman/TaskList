@@ -4,14 +4,14 @@
     "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\TaskList\\TaskList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj": {
+    "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj",
+        "projectUniqueName": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj",
         "projectName": "MyLibs",
-        "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj",
+        "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj",
         "packagesPath": "C:\\Users\\HoboPrime\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\obj\\",
+        "outputPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HoboPrime\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj": {
-                "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\MovieList\\MyLibs\\MyLibs.csproj"
+              "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj": {
+                "projectPath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj"
               }
             }
           }
