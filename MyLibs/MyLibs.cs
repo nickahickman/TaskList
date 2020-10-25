@@ -66,7 +66,7 @@ namespace MyLibs
 
             while (response != "y" && response != "n")
             {
-                response = GetUserResponse($"Invalid response! {prompt} (y/n) ").ToLower();
+                response = GetUserResponse($"Invalid response. {prompt} (y/n) ").ToLower();
             }
 
             if (response == "y")
@@ -85,7 +85,7 @@ namespace MyLibs
 
             while (!IsValidName(name))
             {
-                name = GetUserResponse($"Invalid name: {prompt}");
+                name = GetUserResponse($"Invalid name. {prompt}");
             }
 
             return name;
@@ -97,7 +97,7 @@ namespace MyLibs
 
             while (!IsValidDate(dateString))
             {
-                dateString = GetUserResponse($"Invalid date: {prompt} ");
+                dateString = GetUserResponse($"Invalid date. {prompt} ");
             }
 
             return dateString;

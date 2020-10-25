@@ -7,7 +7,7 @@ namespace TaskList
     class TaskManager
     {
         private static TaskClass currentTask;
-        private static List<string> menu = new List<string> { "List Tasks", "Add Task", "Delete Task", "Mark Task Complete", "Quit" };
+        private static List<string> menu = new List<string> { "List Tasks", "Add Task", "Delete Task", "Mark Task Complete", "Search Tasks by Name", "Search Tasks Before Date", "Quit" };
         private static List<TaskClass> taskList = new List<TaskClass>
         {
             new TaskClass("Nick Hickman", "Task Manager Capstone", "10/26/2020"),
@@ -73,10 +73,19 @@ namespace TaskList
                 else if (userSelection == 3)
                 {
                     Console.Clear();
-                    MyLibs.ConsoleLibrary.DrawTitle("Mark Task Complete");
                     MarkTaskComplete();
                 }
-                else 
+                else if (userSelection == 4)
+                {
+                    Console.Clear();
+                    FindTasksByName();
+                }
+                else if (userSelection == 5)
+                {
+                    Console.Clear();
+                    FindTasksByDate();
+                }
+                else
                 {
                     Console.WriteLine("Thanks, see you next time!");
                     break;
@@ -185,6 +194,77 @@ namespace TaskList
                     Console.WriteLine("Action canceled");
                 }
             }
+        }
+
+        public static void FindTasksByName()
+        {
+            MyLibs.ConsoleLibrary.DrawTitle($"Find Tasks by Team Member");
+
+            string name = MyLibs.UserInputLibrary.GetName("Which team member's tasks would you like to see? ");
+
+            if (!TeamMemberExists(name))
+            {
+                Console.WriteLine($"No tasks found for {name}");
+            }
+            else
+            {
+                for (int i = 0; i < TaskList.Count; i++)
+                {
+                    if (TaskList[i].AssignedTo == name)
+                    {
+                        PrintTask(i);
+                    }
+                }
+            }
+        }
+
+        public static void FindTasksByDate()
+        {
+            MyLibs.ConsoleLibrary.DrawTitle("Find Tasks Due Before a Date");
+            DateTime date = DateTime.Parse(MyLibs.UserInputLibrary.GetNewDate("Enter cutoff date: "));
+
+            MyLibs.ConsoleLibrary.DrawTitle($"Tasks Due Before {date.ToShortDateString()}");
+
+            if (!TasksExistBeforeDate(date))
+            {
+                Console.WriteLine("No matching tasks found\n");
+            }
+            else 
+            {
+                for (int i = 0; i < TaskList.Count; i++)
+                {
+                    if (TaskList[i].DueDate < date)
+                    {
+                        PrintTask(i);
+                    }
+                }
+            }
+        }
+
+        private static bool TasksExistBeforeDate(DateTime date)
+        {
+            for (int i = 0; i < TaskList.Count; i++)
+            {
+                if (TaskList[i].DueDate < date)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool TeamMemberExists(string name)
+        {
+            for (int i = 0; i < TaskList.Count; i++)
+            {
+                if (TaskList[i].AssignedTo == name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private static void PrintTask(int index)
