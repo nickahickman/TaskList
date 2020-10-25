@@ -10,10 +10,12 @@ namespace TaskList
         private static List<string> menu = new List<string> { "List Tasks", "Add Task", "Delete Task", "Mark Task Complete", "Search Tasks by Name", "Search Tasks Before Date", "Quit" };
         private static List<TaskClass> taskList = new List<TaskClass>
         {
-            new TaskClass("Nick Hickman", "Task Manager Capstone", "10/26/2020"),
-            new TaskClass("Nick Hickman", "Movie List Lab", "10/26/2020"),
+            new TaskClass("Pi", "Be constant", "10/01/2020"),
+            new TaskClass("Nick Hickman", "Task Manager capstone", "10/26/2020"),
+            new TaskClass("Nick Hickman", "Movie List lab", "10/26/2020"),
             new TaskClass("Nick Hickman", "Mock Assessment 2", "10/26/2020"),
-            new TaskClass("Nick Hickman", "Blockbuster Lab", "10/27/2020")
+            new TaskClass("Ricky Bobby", "Be first, not last", "10/31/2020"),
+            new TaskClass("Hiphopanonymous", "Do the thing", "11/25/2020")
         };
 
         public static TaskClass CurrentTask
@@ -103,7 +105,7 @@ namespace TaskList
                 PrintTask(i);
             }
 
-            Console.WriteLine("");
+            Console.WriteLine();
         }
 
         public static void AddTask()
@@ -216,6 +218,8 @@ namespace TaskList
                     }
                 }
             }
+
+            Console.WriteLine();
         }
 
         public static void FindTasksByDate()
@@ -239,6 +243,8 @@ namespace TaskList
                     }
                 }
             }
+
+            Console.WriteLine();
         }
 
         private static bool TasksExistBeforeDate(DateTime date)
@@ -269,7 +275,21 @@ namespace TaskList
 
         private static void PrintTask(int index)
         {
-            Console.WriteLine($"{index + 1}. {TaskList[index].AssignedTo}\t\t{TaskList[index].DueDate.ToShortDateString()}\t{TaskList[index].IsComplete}\t\t{TaskList[index].TaskDescription}");
+            if (TaskList[index].AssignedTo.Length < 5)
+            {
+                int padSize = 5 - TaskList[index].AssignedTo.Length;
+                string pad = new string(' ', padSize);
+
+                Console.WriteLine($"{index + 1}. {TaskList[index].AssignedTo}{pad}\t\t{TaskList[index].DueDate.ToShortDateString()}\t{TaskList[index].IsComplete}\t\t{TaskList[index].TaskDescription}");
+            }
+            else if (TaskList[index].AssignedTo.Length > 12)
+            {
+                Console.WriteLine($"{index + 1}. {TaskList[index].AssignedTo}\t{TaskList[index].DueDate.ToShortDateString()}\t{TaskList[index].IsComplete}\t\t{TaskList[index].TaskDescription}");
+            }
+            else
+            {
+                Console.WriteLine($"{index + 1}. {TaskList[index].AssignedTo}\t\t{TaskList[index].DueDate.ToShortDateString()}\t{TaskList[index].IsComplete}\t\t{TaskList[index].TaskDescription}");
+            }
         }
     }
 }

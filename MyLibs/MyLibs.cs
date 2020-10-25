@@ -85,7 +85,7 @@ namespace MyLibs
 
             while (!IsValidName(name))
             {
-                name = GetUserResponse($"Invalid name. {prompt}");
+                name = GetUserResponse($"Invalid name. Names must begin with a capital letter and be at least 2 characters. {prompt}");
             }
 
             return name;
