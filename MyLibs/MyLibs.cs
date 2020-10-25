@@ -23,6 +23,22 @@ namespace MyLibs
             return userResponse;
         }
 
+        public static int GetIntegerResponse(string prompt, int max)
+        {
+            string userResponse = GetUserResponse(prompt);
+            int integer;
+
+            while (!IsInteger(userResponse) || int.Parse(userResponse) > max)
+            {
+                userResponse = GetUserResponse($"I need a numerical response. {prompt}");
+            }
+
+            integer = int.Parse(userResponse);
+            integer--;
+
+            return integer;
+        }
+
         public static int GetMenuSelection(string prompt, List<string> options)
         {
             string userResponse = GetUserResponse(prompt);
@@ -30,7 +46,7 @@ namespace MyLibs
 
             while (!IsInteger(userResponse))
             {
-                userResponse = GetUserResponse($"I need a numerical response. {prompt}");
+                userResponse = GetUserResponse($"I need a numerical response. 1-{options.Count + 1} {prompt}");
             }
 
             selection = int.Parse(userResponse);
@@ -81,7 +97,7 @@ namespace MyLibs
 
             while (!IsValidDate(dateString))
             {
-                dateString = GetUserResponse($"Invalid date: {prompt} (mm/dd/yyyy");
+                dateString = GetUserResponse($"Invalid date: {prompt} ");
             }
 
             return dateString;
