@@ -10,10 +10,10 @@ namespace TaskList
         private static List<string> menu = new List<string> { "List Tasks", "Add Task", "Delete Task", "Mark Task Complete", "Quit" };
         private static List<TaskClass> taskList = new List<TaskClass>
         {
-            new TaskClass("Nick Hickman", "Task Manager Capstone", DateTime.Parse("10/26/2020")),
-            new TaskClass("Nick Hickman", "Movie List Lab", DateTime.Parse("10/26/2020")),
-            new TaskClass("Nick Hickman", "Mock Assessment 2", DateTime.Parse("10/26/2020")),
-            new TaskClass("Nick Hickman", "Blockbuster Lab", DateTime.Parse("10/27/2020"))
+            new TaskClass("Nick Hickman", "Task Manager Capstone", "10/26/2020"),
+            new TaskClass("Nick Hickman", "Movie List Lab", "10/26/2020"),
+            new TaskClass("Nick Hickman", "Mock Assessment 2", "10/26/2020"),
+            new TaskClass("Nick Hickman", "Blockbuster Lab", "10/27/2020")
         };
 
         public static TaskClass CurrentTask
@@ -49,99 +49,100 @@ namespace TaskList
         {
             while (true)
             {
-                MyLibs.ConsoleLibrary.DrawTitle("Task Manager", "program");
-                MyLibs.ConsoleLibrary.DrawTitle("Menu", "section");
+                MyLibs.ConsoleLibrary.DrawTitle("Menu");
 
                 ListMenuOptions();
 
-                int userSelection = MyLibs.UserInputLibrary.ValidateMenuSelection("\nWhat would you like to do? ", Menu);
+                int userSelection = MyLibs.UserInputLibrary.GetMenuSelection("\nWhat would you like to do? ", Menu);
 
                 if (userSelection == 0)
                 {
+                    Console.Clear();
                     ListTasks();
                 }
                 else if (userSelection == 1)
                 {
+                    Console.Clear();
                     AddTask();
                 }
                 else if (userSelection == 2)
                 {
+                    Console.Clear();
                     DeleteTask();
                 }
                 else if (userSelection == 3)
                 {
+                    Console.Clear();
+                    MyLibs.ConsoleLibrary.DrawTitle("Mark Task Complete");
                     DeleteTask();
                 }
-
-                if (!MyLibs.UserInputLibrary.UserWantsToContinue("Keep Going?", "I didn't understand that."))
+                else 
                 {
                     Console.WriteLine("Thanks, see you next time!");
                     break;
                 }
-                Console.Clear();
             }
         }
 
         public static void ListTasks()
         {
-            Console.Clear();
-
-            MyLibs.ConsoleLibrary.DrawTitle("Assigned To  |  Due Date  |  Description", "section");
+            Console.WriteLine("   Assigned To\t\tDue Date\tComplete\tDescription");
+            MyLibs.ConsoleLibrary.DrawHr(80);
 
             for (int i = 0; i < TaskList.Count; i++)
             {
                 PrintTask(i);
             }
+
+            Console.WriteLine("");
         }
 
         public static void AddTask()
         {
-            MyLibs.ConsoleLibrary.DrawTitle("Add Task", "program");
+            MyLibs.ConsoleLibrary.DrawTitle("New Task");
 
-            string assignedTo = MyLibs.UserInputLibrary.GetUserResponse("Who will this task be assigned to? ");
+            string assignedTo = MyLibs.UserInputLibrary.GetName("Who will this task be assigned to? ");
             string description = MyLibs.UserInputLibrary.GetUserResponse("Enter a task description: ");
-            DateTime dueDate = DateTime.Parse(MyLibs.UserInputLibrary.GetUserResponse("When is this task due? "));
+            string dueDate = MyLibs.UserInputLibrary.GetNewDate("When is this task due? ");
 
             TaskList.Add(new TaskClass(assignedTo, description, dueDate));
+            Console.WriteLine("Task added successfully");
         }
 
         public static void DeleteTask()
         {
-            MyLibs.ConsoleLibrary.DrawTitle("Delete Task", "program");
             ListTasks();
 
-            int userSelection = MyLibs.UserInputLibrary.ValidateMenuSelection("\nWhich item should be deleted? ", Menu);
+            int userSelection = MyLibs.UserInputLibrary.GetMenuSelection("\nWhich task do you wish to delete? ", Menu);
 
             while (userSelection < 0 || userSelection > TaskList.Count)
             {
-                userSelection = MyLibs.UserInputLibrary.ValidateMenuSelection("Invalid selection: Which item should be deleted? ", Menu);
+                userSelection = MyLibs.UserInputLibrary.GetMenuSelection("Invalid selection: Which task do you wish to delete? ", Menu);
             }
 
             PrintTask(userSelection);
-            string deleteConfirmation = MyLibs.UserInputLibrary.GetUserResponse("Are you sure you want to delete this item? (y/n) ");
+            bool deleteConfirmation = MyLibs.UserInputLibrary.GetYesOrNoInput("Are you sure you want to delete this item");
 
-            if (deleteConfirmation == "y")
+            if (deleteConfirmation)
             {
                 TaskList.RemoveAt(userSelection);
-                Console.WriteLine("Task successfully removed!");
+                Console.WriteLine("Task deleted successfully");
             }
-            else if (deleteConfirmation == "n")
-            {
-                Console.WriteLine("Task deletion canceled");
+            else {
+                Console.WriteLine("Action canceled");
             }
 
         }
 
         public static void MarkComplete()
         {
-            MyLibs.ConsoleLibrary.DrawTitle("Mark item complete", "program");
             ListTasks();
 
-            int userSelection = MyLibs.UserInputLibrary.ValidateMenuSelection("\nWhich item should be marked complete? ", Menu);
+            int userSelection = MyLibs.UserInputLibrary.GetMenuSelection("\nWhich item should be marked complete? ", Menu);
 
             while (userSelection < 0 || userSelection > TaskList.Count)
             {
-                userSelection = MyLibs.UserInputLibrary.ValidateMenuSelection("Invalid selection: Which item should be marked complete? ", Menu);
+                userSelection = MyLibs.UserInputLibrary.GetMenuSelection("Invalid selection: Which item should be marked complete? ", Menu);
             }
 
             PrintTask(userSelection);
@@ -160,7 +161,7 @@ namespace TaskList
 
         private static void PrintTask(int index)
         {
-            Console.WriteLine($"{index + 1}. {TaskList[index].AssignedTo}\t{TaskList[index].DueDate}\t{TaskList[index].TaskDescription}");
+            Console.WriteLine($"{index + 1}. {TaskList[index].AssignedTo}\t\t{TaskList[index].DueDate.ToShortDateString()}\t{TaskList[index].IsComplete}\t\t{TaskList[index].TaskDescription}");
         }
     }
 
@@ -195,14 +196,12 @@ namespace TaskList
             set { isComplete = value; }
         }
 
-        public TaskClass(string AssignedTo, string TaskDescription, DateTime DueDate)
+        public TaskClass(string AssignedTo, string TaskDescription, string DueDate)
         {
             assignedTo = AssignedTo;
             taskDescription = TaskDescription;
-            dueDate = DueDate;
+            dueDate = DateTime.Parse(DueDate);
             isComplete = false;
         }
-
-
     }
 }
