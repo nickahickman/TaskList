@@ -10,7 +10,6 @@ namespace TaskList
         private static List<string> menu = new List<string> { "List Tasks", "Add Task", "Delete Task", "Mark Task Complete", "Search Tasks by Name", "Search Tasks Before Date", "Quit" };
         private static List<TaskClass> taskList = new List<TaskClass>
         {
-            new TaskClass("Pi", "Be constant", "10/01/2020"),
             new TaskClass("Nick Hickman", "Task Manager capstone", "10/26/2020"),
             new TaskClass("Nick Hickman", "Movie List lab", "10/26/2020"),
             new TaskClass("Nick Hickman", "Mock Assessment 2", "10/26/2020"),
