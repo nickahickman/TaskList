@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace MyLibs
@@ -9,7 +11,7 @@ namespace MyLibs
         {
             string userResponse;
 
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             userResponse = Console.ReadLine().Trim();
 
             while (String.IsNullOrEmpty(userResponse))
@@ -21,43 +23,92 @@ namespace MyLibs
             return userResponse;
         }
 
-        public static string ValidateUserResponse(string prompt, Func<string, bool> Test)
+        public static int GetMenuSelection(string prompt, List<string> options)
         {
             string userResponse = GetUserResponse(prompt);
+            int selection;
 
-            while (!Test(userResponse))
+            while (!IsInteger(userResponse))
             {
-                userResponse = MyLibs.UserInputLibrary.GetUserResponse($"Invalid entry: {prompt}");
+                userResponse = GetUserResponse($"I need a numerical response. {prompt}");
             }
 
-            return userResponse;
+            selection = int.Parse(userResponse);
+            selection--;
+
+            while (!OptionExists(selection, options))
+            {
+                selection = GetMenuSelection($"Invalid entry. {prompt}", options);
+            }
+
+            return selection;
         }
 
-        public static bool IsValidSelection(string response, params string[] options)
+        public static bool GetYesOrNoInput(string prompt)
         {
+            string response = GetUserResponse($"{prompt}? (y/n) ").ToLower();
 
-            foreach (string option in options)
+            while (response != "y" && response != "n")
             {
-                if (response == option)
-                {
-                    return true;
-                }
+                response = GetUserResponse($"Invalid response! {prompt} (y/n) ").ToLower();
             }
 
-            return false;
+            if (response == "y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public static bool IsValidEntry(string response, string[] options)
+        public static string GetName(string prompt)
         {
-            foreach (string option in options)
+            string name = GetUserResponse(prompt);
+
+            while (!IsValidName(name))
             {
-                if (option == response)
-                {
-                    return true;
-                }
+                name = GetUserResponse($"Invalid name: {prompt}");
             }
 
-            return false;
+            return name;
+        }
+
+        public static string GetNewDate(string prompt)
+        {
+            string dateString = GetUserResponse(prompt);
+
+            while (!IsValidDate(dateString))
+            {
+                dateString = GetUserResponse($"Invalid date: {prompt} (mm/dd/yyyy");
+            }
+
+            return dateString;
+        }
+
+        public static bool IsInteger(string response)
+        {
+            return response.All(char.IsDigit);
+        }
+
+        public static bool OptionExists(int selection, List<string> options)
+        {
+            return selection >= 0 && selection < options.Count;
+        }
+
+        public static bool IsValidDate(string name)
+        {
+            Regex rx = new Regex(@"[0-9]{2}[-|\/]{1}[0-9]{2}[-|\/]{1}[0-9]{4}");
+
+            return rx.IsMatch(name);
+        }
+
+        public static bool IsValidName(string name)
+        {
+            Regex rx = new Regex(@"^[A-Z][a-z]{1,30}");
+
+            return rx.IsMatch(name);
         }
 
         public static bool UserWantsToContinue(string originalQuery, string errorMessage)
@@ -82,24 +133,16 @@ namespace MyLibs
 
     public class ConsoleLibrary
     {
-        public static void DrawTitle(string title, string type)
+        public static void DrawTitle(string title)
         {
+            string hr = new string('-', title.Length);
             Console.WriteLine(title);
-
-            if (type == "program")
-            {
-                DrawHR(title.Length, '=');
-            }
-            else if (type =="section")
-            {
-                DrawHR(title.Length, '-');
-            }
+            Console.WriteLine(hr);
         }
-
-        public static void DrawHR(int stringLength, char type)
+        public static void DrawHr(int length)
         {
-            string hr = new string(type, stringLength);
-            Console.WriteLine($"{hr}\n");
+            string hr = new string('-', length);
+            Console.WriteLine(hr);
         }
     }
 }

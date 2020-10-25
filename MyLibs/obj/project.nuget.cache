@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1oy99U+nIa9oxDJ99kTODETXtVj3YQ0MWttUPPlqQI1UKQjTzBUyBykfhTI0JnrKiNiZUcbYsfrfrKL+ys7bhw==",
+  "dgSpecHash": "m1LlfpXa/LC3Xi4+D0yrwmFIoiPrl00pWpDmwPRhQzuyY7aQOXQdxin3yw94/HXsQEfUxD3e1Ud8q7KDzhxuqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\Lab9_RefactoringTime\\MyLibs\\MyLibs.csproj",
+  "projectFilePath": "C:\\Users\\HoboPrime\\Desktop\\grandCircus\\unit2\\TaskList\\MyLibs\\MyLibs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HoboPrime\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\HoboPrime\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
