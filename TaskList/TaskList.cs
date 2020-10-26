@@ -8,14 +8,7 @@ namespace TaskList
     {
         private static TaskClass currentTask;
         private static List<string> menu = new List<string> { "List Tasks", "Add Task", "Delete Task", "Mark Task Complete", "Search Tasks by Name", "Search Tasks Before Date", "Quit" };
-        private static List<TaskClass> taskList = new List<TaskClass>
-        {
-            new TaskClass("Nick Hickman", "Task Manager capstone", "10/26/2020"),
-            new TaskClass("Nick Hickman", "Movie List lab", "10/26/2020"),
-            new TaskClass("Nick Hickman", "Mock Assessment 2", "10/26/2020"),
-            new TaskClass("Ricky Bobby", "Be first, not last", "10/31/2020"),
-            new TaskClass("Hiphopanonymous", "Do the thing", "11/25/2020")
-        };
+        private static List<TaskClass> taskList = new List<TaskClass>();
 
         public static TaskClass CurrentTask
         {
@@ -149,11 +142,10 @@ namespace TaskList
                 {
                     TaskList.RemoveAt(userSelection);
                     Console.Clear();
-                    Console.WriteLine("Task deleted successfully");
                 }
                 else
                 {
-                    Console.WriteLine("Action canceled");
+                    Console.Clear();
                 }
             }
         }
@@ -188,11 +180,10 @@ namespace TaskList
                 {
                     TaskList[userSelection].IsComplete = true;
                     Console.Clear();
-                    Console.WriteLine("Task Updated");
                 }
                 else
                 {
-                    Console.WriteLine("Action canceled");
+                    Console.Clear();
                 }
             }
         }
